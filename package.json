@@ -1,0 +1,27 @@
+{
+  "name": "rise6-types",
+  "version": "1.0.0",
+  "description": "Typings of the Rise 6 Scripting API",
+  "homepage": "https://github.com/LukeIsHereToDevelop/rise6-types#readme",
+  "repository": "github:LukeIsHereToDevelop/rise6-types",
+  "bugs": {
+    "url": "https://github.com/LukeIsHereToDevelop/rise6-types/issues",
+    "email": "lukeisheretodevelop@protonmail.com"
+  },
+  "main": "dist/types.js",
+  "types": "dist/types.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "rise",
+    "api",
+    "script",
+    "types"
+  ],
+  "author": "LukeIsHereToDevelop <lukeisheretodevelop@protonmail.com> (https://luke.is-a.dev)",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}

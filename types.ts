@@ -97,16 +97,51 @@ interface ItemStack {
     getName(): string;
 }
 
+interface BlockPos {
+    /**
+     * Returns the position of the blockpos.
+     */
+    getPosition(): Vector3;
+    /**
+     * Returns the hardness of the block at the blockpos, you can get the amount of ticks it will take to break the block by doing 1 / hardness.
+     * @param slot
+     */
+    getHardness(slot?: number): number;
+    /**
+     * Returns the block at the position.
+     */
+    getBlock(): Block;
+}
+
+interface Block {
+    /**
+     * Returns the block Id.
+     */
+    getId(): number;
+    /**
+     * Returns the block name.
+     */
+    getName(): string;
+    /**
+     * Returns opaqueness.
+     */
+    isOpaque(): boolean;
+    /**
+     * Returns true if the block is a full block.
+     */
+    isFullBlock(): boolean;
+}
+
 interface Inventory {
     /**
-     * Returns all the item stacks in the inventory.
+     * Returns the current held itemstack.
      */
-    getItemStacks(): ItemStack[];
+    getHeldItem(): ItemStack;
     /**
      * Returns the item stack in specified slot.
      * @param slot
      */
-    getItemInSlot(slot: number): ItemStack;
+    getItemStackInSlot(slot: number): ItemStack;
 }
 
 interface Command {
@@ -321,6 +356,16 @@ interface Entity {
      */
     getRotation(): Vector2;
     /**
+     * Sets the entities yaw.
+     * @param yaw
+     */
+    setYaw(yaw: any): undefined;
+    /**
+     * Sets the entities pitch.
+     * @param pitch
+     */
+    setPitch(pitch: any): undefined;
+    /**
      * Returns the previous tick entity rotation.
      */
     getLastRotation(): Vector2;
@@ -498,6 +543,14 @@ declare namespace render {
      */
     export function getThemeColor(): number[];
     /**
+     * Returns the background color of Rise Elements, can be used to make your visuals match Rise's.
+     */
+    export function getBackgroundShade(): number[];
+    /**
+     * Returns the bloom drop shadow color of Rise Elements, can be used to make your visuals match Rise's.
+     */
+    export function getDropShadow(): number[];
+    /**
      * Applies an effect to a block of code.
      * @param callback Body of the function to apply a specified effect to.
      */
@@ -609,15 +662,6 @@ declare namespace world {
      */
     export function getDimensionTime(): number;
     /**
-     * Returns all of the loaded/visible entities.
-     */
-    export function getLivingEntities(): EntityLiving[];
-    /**
-     * Returns all of the loaded/visible targetable entities in a certain range.
-     * @param range The maximum amount of range to get entities from.
-     */
-    export function getTargetEntities(range: number): EntityLiving[];
-    /**
      * Returns the closest targetable entity in a certain range.
      * @param range The maximum amount of range to get the entity from.
      */
@@ -709,7 +753,7 @@ declare namespace rise {
      * @param velocity The ping spoof type to use. **This parameter is optional.**
      * @param entity The ping spoof type to use. **This parameter is optional.**
      */
-    export function pingspoof(delay: number, normal?: boolean, teleport?: boolean, velocity?: boolean, entity?: boolean): undefined;
+    export function pingspoof(delay: number, normal?: boolean, teleport?: boolean, velocity?: boolean, entity?: boolean, amount?: number): undefined;
     /**
      * Blinks the player.
      */
@@ -718,6 +762,13 @@ declare namespace rise {
      * Sends all delayed/blinked packets.
      */
     export function dispatch(): undefined;
+    /**
+     * Creates a block pos at coordinates.
+     * @param x 
+     * @param y 
+     * @param z 
+     */
+    export function newBlockPos(x: number, y: number, z: number): BlockPos;
 }
 
 /**

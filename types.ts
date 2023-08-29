@@ -559,7 +559,7 @@ declare namespace render {
      * Applies an effect to a block of code.
      * @param callback Body of the function to apply a specified effect to.
      */
-    export function postBloom(callback: Function): undefined;
+    export function bloom(callback: Function): undefined;
     /**
      * Applies an effect to a block of code.
      * @param callback Body of the function to apply a specified effect to.

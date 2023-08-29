@@ -1,5 +1,5 @@
 type scriptEvent = "onLoad" | "onUnload" | "onExecute";
-type moduleEvent = "onAttack" | "onChatInput" | "onClick" | "onEntityRender" | "onHitSlowDown" | "onJump" | "onKeyboardInput" | "onKill" | "onMoveInput" | "onPostMotion" | "onPreMotion" | "onStrafe" | "onPreUpdate" | "onRender2D" | "onRender3D" | "onWater" | "onTick" | "onSlowDown";
+type moduleEvent = "onAttack" | "onWorldChange" | "onModuleToggle" | "onServerKick" | "onGameEvent" | "onChatInput" | "onClick" | "onEntityRender" | "onHitSlowDown" | "onJump" | "onKeyboardInput" | "onKill" | "onMoveInput" | "onPostMotion" | "onPreMotion" | "onStrafe" | "onPreUpdate" | "onRender2D" | "onRender3D" | "onWater" | "onTick" | "onSlowDown";
 type eventCallback = (event: Event) => undefined;
 
 interface FontRenderer {
